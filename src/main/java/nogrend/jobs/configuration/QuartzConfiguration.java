@@ -1,6 +1,5 @@
 package nogrend.jobs.configuration;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -19,14 +18,6 @@ public class QuartzConfiguration {
     private String username;
     @Value("${spring.quartz.properties.org.quartz.dataSource.quartzDataSource.password}")
     private String password;
-
-    @PostConstruct
-    public void validateProperties() {
-        System.out.println("Driver: " + driver);
-        System.out.println("URL: " + url);
-        System.out.println("Username: " + username);
-        System.out.println("Password: " + password);
-    }
 
     @Bean
     public DataSource dataSource() {
