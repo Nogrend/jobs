@@ -2,36 +2,36 @@ spring:
   application:
     name: jobs
 
-#  datasource:
-#    jdbcUrl: jdbc:postgresql://localhost:5432/postgres
-#    username: user
-#    password: user
-#    driver-class-name: org.postgresql.Driver
-
   quartz:
     job-store-type: jdbc
     jdbc:
       initialize-schema: always
+
     properties:
-      org:
-        quartz:
-          scheduler.instanceName: MyScheduler
-          scheduler.instanceId: AUTO
-          threadPool.threadCount: 5
-          jobStore.class: org.quartz.impl.jdbcjobstore.JobStoreTX
-          jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
-          jobStore.dataSource: quartzDataSource
-          jobStore.tablePrefix: qrtz_
-          jobStore.isClustered: true
-          jobStore.clusterCheckinInterval: 20000
-          dataSource.quartzDataSource.driver: org.postgresql.Driver
-          dataSource.quartzDataSource.URL: jdbc:postgresql://localhost:5432/postgres
-          dataSource.quartzDataSource.jdbcUrl: jdbc:postgresql://localhost:5432/postgres
-          dataSource.quartzDataSource.user: user
-          dataSource.quartzDataSource.username: user
-          dataSource.quartzDataSource.password: user
-          dataSource.quartzDataSource.maxConnections: 10
-          dataSource.quartzDataSource.provider: hikaricp
+      org.quartz:
+        scheduler:
+          instanceName: YoloScheduler
+          instanceId: AUTO
+
+        threadPool:
+          threadCount: 5
+
+        jobStore:
+          class: org.quartz.impl.jdbcjobstore.JobStoreTX
+          driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+          dataSource: quartzDataSource
+          tablePrefix: qrtz_
+          isClustered: true
+          clusterCheckinInterval: 20000
+
+        dataSource:
+          quartzDataSource:
+            driver: org.postgresql.Driver
+            URL: jdbc:postgresql://localhost:5432/postgres
+            user: user
+            password: user
+            maxConnections: 10
+            provider: hikaricp
 
 logging:
   level:

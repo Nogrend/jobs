@@ -25,7 +25,7 @@ public class HelloWorldConfig {
         return TriggerBuilder.newTrigger().forJob(helloWorldJobDetail)
                 .withIdentity("helloWorld", "sayingSomething")
                 .withDescription("Saying hello world by cron expression")
-                .withSchedule(cronSchedule(new CronExpression("0/10 * * * * ?")))
+                .withSchedule(cronSchedule(new CronExpression("0/3 * * * * ?")))
                 .build();
     }
 }
