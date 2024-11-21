@@ -1,0 +1,14 @@
+{
+  "orderStatus": {
+    "id": 1,
+    "someOtherField": "...",
+    "medicationHandling": {
+      "type": "locker",
+      "details": {
+        "locationDescription": "some text",
+        "lockerCode": 12345678
+      },
+      "deliverDateTime": "2024-11-21T09:00:13.535Z"
+    }
+  }
+}

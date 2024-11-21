@@ -1,0 +1,22 @@
+{
+  "orderStatus": {
+    "id": 1,
+    "someOtherField": "...",
+    "medicationLocation": {
+      "locationType": "deliver",
+      "locationDescription": "some text",
+      "lockerCode": null,
+      "pickUpCode": null,
+      "deliverDetails": {
+        "deliverStatus": "inTransit",
+        "address": {
+          "streetName": "string",
+          "streetNumber": "23A",
+          "zipCode": "2323AD",
+          "city": "string"
+        },
+        "deliverDateTime": "2024-11-21T09:00:13.535Z"
+      }
+    }
+  }
+}

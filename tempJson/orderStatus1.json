@@ -1,0 +1,19 @@
+{
+  "orderStatus": {
+    "id": 1,
+    "someOtherField": "...",
+    "medicationHandling": {
+      "type": "delivery",
+      "details": {
+        "deliverStatus": "inTransit",
+        "address": {
+          "streetName": "Main Street",
+          "streetNumber": "123A",
+          "zipCode": "12345",
+          "city": "Springfield"
+        },
+        "deliverDateTime": "2024-11-21T09:00:13.535Z"
+      }
+    }
+  }
+}
