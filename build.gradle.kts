@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.3.1"
+    id("org.springframework.boot") version "3.4.6"
     id("io.spring.dependency-management") version "1.1.5"
 }
 
@@ -19,13 +19,17 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+
+    implementation("org.postgresql:postgresql:42.7.6")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-quartz:3.3.1")
 
-    implementation("org.slf4j:slf4j-api:2.0.13")
-    testImplementation("ch.qos.logback:logback-classic:1.5.6")
+    implementation("net.javacrumbs.shedlock:shedlock-spring:6.6.1")
+    implementation("net.javacrumbs.shedlock:shedlock-provider-jdbc-template:6.6.1")
 
-    implementation("org.postgresql:postgresql:42.7.3")
+//    implementation("org.slf4j:slf4j-api:2.0.13")
+//    testImplementation("ch.qos.logback:logback-classic:1.5.6")
+
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

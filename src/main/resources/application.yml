@@ -2,37 +2,12 @@ spring:
   application:
     name: jobs
 
-  quartz:
-    job-store-type: jdbc
-    jdbc:
-      initialize-schema: always
-
-    properties:
-      org.quartz:
-        scheduler:
-          instanceName: YoloScheduler
-          instanceId: AUTO
-
-        threadPool:
-          threadCount: 5
-
-        jobStore:
-          class: org.quartz.impl.jdbcjobstore.JobStoreTX
-          driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
-          dataSource: quartzDataSource
-          tablePrefix: qrtz_
-          isClustered: true
-          clusterCheckinInterval: 20000
-
-        dataSource:
-          quartzDataSource:
-            driver: org.postgresql.Driver
-            URL: jdbc:postgresql://localhost:5432/postgres
-            user: user
-            password: user
-            maxConnections: 10
-            provider: hikaricp
-
-logging:
-  level:
-    org.quartz: off
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user
+    password: user
+    hikari:
+      connection-timeout: 60_000  # 60 seconds (default: 30s)
+      max-lifetime: 120_000       # 2 minutes (default: 30min)
+      leak-detection-threshold: 60_000
