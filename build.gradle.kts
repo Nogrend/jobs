@@ -27,10 +27,6 @@ dependencies {
     implementation("net.javacrumbs.shedlock:shedlock-spring:6.6.1")
     implementation("net.javacrumbs.shedlock:shedlock-provider-jdbc-template:6.6.1")
 
-//    implementation("org.slf4j:slf4j-api:2.0.13")
-//    testImplementation("ch.qos.logback:logback-classic:1.5.6")
-
-
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
