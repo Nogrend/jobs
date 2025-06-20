@@ -16,11 +16,11 @@ public class OutboxService {
     public void save(Long id, String message) {
         var outboxMessage = new OutboxMessage(
                 id,
-                "SomeAggregate",        // aggregateType
-                id.toString(),          // aggregateId (you can change this as needed)
-                "SomeEventType",        // eventType
-                message,                // payload
-                Instant.now()           // createdAt
+                "SomeAggregate",
+                id.toString(),
+                "SomeEventType",
+                message,
+                Instant.now()
         );
         this.outboxRepository.save(outboxMessage);
     }
