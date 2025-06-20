@@ -54,4 +54,16 @@ class MessageServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Content cannot be null or empty");
     }
+
+    @Test
+    void sendMessage() {
+        // given
+        var message = new Message(new MessageId(), null, Instant.now());
+
+        // when
+         subject.sendMessage(message);
+
+        // then
+
+    }
 }

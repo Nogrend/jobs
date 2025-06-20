@@ -1,5 +1,16 @@
 ### app1
 GET http://localhost:8081/peek
+    ?limit=1
 
-### app2
-GET http://localhost:8082/peek
+### app1
+GET http://localhost:8081/peek
+    ?limit=2
+
+### post an id
+POST http://localhost:8081/peek
+Content-Type: application/json
+
+{
+    "id": 1,
+    "message": "hello there"
+}

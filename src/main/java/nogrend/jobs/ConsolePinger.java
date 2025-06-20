@@ -16,28 +16,36 @@ public class ConsolePinger {
         this.counterRepository = counterRepository;
     }
 
-    @Scheduled(fixedRate = 2000)
+//    @Scheduled(fixedRate = 60_000)
     @SchedulerLock(name = "ConsolePinger_ping",
-            lockAtMostFor = "1s",  // Max lock duration if the node crashes
-            lockAtLeastFor = "500ms")  // Minimum lock time to prevent overlapping runs
+            lockAtMostFor = "7s")  // Max lock duration if the node crashes
+//            lockAtLeastFor = "6s")  // Minimum lock time to prevent overlapping runs
     public void ping() {
         String appName = context.getEnvironment().getProperty("spring.application.name");
-        System.out.println("Ping! from " + appName);
+        System.out.print("Ping! from " + appName + " ");
 
         var counter = counterRepository.getCounter("main_counter").stream()
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No main counter found"));
 
-        System.out.println("Counter: " + counter);
+        System.out.print("counter: " + counter);
 
-        counterRepository.incrementCounter("main_counter");
+//        counterRepository.incrementCounter("main_counter");
 
         try {
             // If you need a delay
-            Thread.sleep(5000); // 1 second delay
+            Thread.sleep((long)(Math.random() * 2000));
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        System.out.println(appName + " has finished");
+        counterRepository.incrementCounter("main_counter");
+        System.out.println(" " + appName + " has finished");
+        try {
+            // If you need a delay
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        System.out.println("...");
     }
 }

@@ -3,12 +3,18 @@ package nogrend.jobs.message;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public record Message(
         MessageId id,
         String content,
         Instant createdAt
 ) {
+    public Message {
+        content = Objects.requireNonNull(content, "Content cannot be null");
+        if (content.isBlank()) throw new IllegalArgumentException();
+    }
+
     public static Message of(String content) {
         if (content == null || content.isBlank()) {
             throw new IllegalArgumentException("Content cannot be null or empty");
